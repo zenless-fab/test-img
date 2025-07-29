@@ -1,0 +1,33 @@
+# Deep Learning and Machine Learning Libraries
+torch
+torchvision
+torchaudio
+einops
+jax[cuda12]
+flax[all]
+optax
+numpy
+pandas
+scikit-learn
+scipy
+cupy-cuda12x
+triton
+albumentations
+gensim
+spacy
+nltk
+lightning
+
+# HuggingFace
+huggingface_hub[hf_xet,cli]
+diffusers[torch]
+transformers
+datasets
+timm
+
+# Datascience and data manipulation
+polars[all]
+dask[complete]
+ray[data,train,tune]
+duckdb
+seaborn[stats]
