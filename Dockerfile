@@ -1,8 +1,11 @@
+ARG BASE_IMAGE_NAME=nvcr.io/nvidia/cuda
+ARG BASE_IMAGE_TAG=12.4.1-cudnn-devel-ubuntu22.04
+
 ARG UV_VERSION=0.8.3
 FROM ghcr.io/astral-sh/uv:${UV_VERSION} AS uv
 
 
-FROM nvidia/cuda:12.9.1-cudnn-devel-ubuntu24.04 AS base
+FROM ${BASE_IMAGE_NAME}:${BASE_IMAGE_TAG} AS base
 
 ENV DEBIAN_FRONTEND=noninteractive \
     SHELL=/bin/zsh
@@ -78,6 +81,6 @@ RUN curl -fsSL https://code-server.dev/install.sh | sh \
     && code-server --install-extension redhat.vscode-yaml
 
 ENV SHELL=/bin/zsh
-CMD ["code-server", "--bind-addr=0.0.0.0:8080", "--auth=none", "--disable-telemetry", "--disable-update-check"]
+CMD ["code-server", "--bind-addr=0.0.0.0:8080", "--auth=none", "--disable-telemetry", "--disable-update-check", "/workspace"]
 EXPOSE 8080
 VOLUME [ "/workspace" ]
