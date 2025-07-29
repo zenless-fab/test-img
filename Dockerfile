@@ -1,11 +1,8 @@
-ARG BASE_IMAGE_NAME=nvcr.io/nvidia/cuda-dl-base
-ARG BASE_IMAGE_TAG=25.06-cuda12.9-devel-ubuntu24.04
-
 ARG UV_VERSION=0.8.3
 FROM ghcr.io/astral-sh/uv:${UV_VERSION} AS uv
 
 
-FROM ${BASE_IMAGE_NAME}:${BASE_IMAGE_TAG} AS base
+FROM nvidia/cuda:12.9.1-cudnn-devel-ubuntu24.04 AS base
 
 ENV DEBIAN_FRONTEND=noninteractive \
     SHELL=/bin/zsh
