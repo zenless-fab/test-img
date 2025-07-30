@@ -37,9 +37,9 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          flavor: |
-            prefix=${{ matrix.target }}-
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}-${{ matrix.target }}
+          # flavor: |
+          #   prefix=${{ matrix.target }}-
           tags: |
             type=schedule,pattern=nightly
             type=ref,event=branch
