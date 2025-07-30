@@ -40,7 +40,7 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           flavor: |
             prefix: ${{ matrix.target }}-
-          tags:
+          tags: |
             type=schedule,pattern=nightly
             type=ref,event=branch
             type=ref,event=tag
